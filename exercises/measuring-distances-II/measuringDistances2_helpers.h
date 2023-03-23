@@ -2,9 +2,8 @@
 // Created by Peter Vaiciulis on 3/23/23.
 //
 
-#ifndef AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H
-#define AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H
 
+#pragma once
 #include <vector>
 #include <string>
 
@@ -77,4 +76,3 @@ int getPathDistance(const std::vector<std::string> &path, const std::vector<std:
     }
     return total_distance;
 }
-#endif //AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H

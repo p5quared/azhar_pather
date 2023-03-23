@@ -2,8 +2,7 @@
 // Created by Peter Vaiciulis on 3/23/23.
 //
 
-#ifndef AZHAR_PATH_MEASURINGDISTANCES_HELPERS_H
-#define AZHAR_PATH_MEASURINGDISTANCES_HELPERS_H
+#pragma once
 #include <vector>
 #include <string>
 
@@ -23,4 +22,3 @@ int pathDistance(const std::vector<int> path, const Matrix& map) {
     }
     return total_distance;
 }
-#endif //AZHAR_PATH_MEASURINGDISTANCES_HELPERS_H
