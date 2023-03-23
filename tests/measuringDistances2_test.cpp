@@ -5,7 +5,14 @@
 #include <string>
 #include <catch2/catch_test_macros.hpp>
 
-#include "measuringDistances2.cpp"
+#include "measuring-distances-II/measuringDistances2_helpers.h"
+int distance_sol(const std::string& city1,const std::string& city2, const std::vector<std::string>& cities, const
+Matrix&
+map);
+int getPathDistance_sol(const std::vector<std::string> &path, const std::vector<std::string>& cities, const Matrix&
+map);
+
+
 
 TEST_CASE("Part1: Distances"){
 SECTION("Map1"){
@@ -67,37 +74,37 @@ SECTION("Map1"){
 
 TEST_CASE("Part2: Path Distances"){
     SECTION("Map1"){
+        std::vector<std::string> Cities = {"A", "B", "C", "D"};
         Matrix map1 = {
                 {0, 10, 20, 30},
                 {10, 0, 40, 50},
                 {20, 40, 0, 60},
                 {30, 50, 60, 0}
         };
-        std::vector<std::string> Cities = {"A", "B", "C", "D"};
 
         Path path1 = {"A", "B", "C", "D"};
-        REQUIRE(getPathDistance(path1, Cities, map1) == 100);
+        REQUIRE(getPathDistance(path1, Cities, map1) == getPathDistance_sol(path1, Cities, map1));
 
         Path path2 = {"A", "C", "B", "D"};
-        REQUIRE(getPathDistance(path2, Cities, map1) == 120);
+        REQUIRE(getPathDistance(path2, Cities, map1) == getPathDistance_sol(path2, Cities, map1));
 
         Path path3 = {"A", "D", "C", "B"};
-        REQUIRE(getPathDistance(path3, Cities, map1) == 150);
+        REQUIRE(getPathDistance(path3, Cities, map1) == getPathDistance_sol(path3, Cities, map1));
 
         Path path4 = {"A", "B", "D", "C"};
-        REQUIRE(getPathDistance(path4, Cities, map1) == 130);
+        REQUIRE(getPathDistance(path4, Cities, map1) == getPathDistance_sol(path4, Cities, map1));
 
         Path path5 = {"A", "C", "D", "B"};
-        REQUIRE(getPathDistance(path5, Cities, map1) == 140);
+        REQUIRE(getPathDistance(path5, Cities, map1) == getPathDistance_sol(path5, Cities, map1));
 
         Path path6 = {"A", "B", "C"};
-        REQUIRE(getPathDistance(path6, Cities, map1) == 70);
+        REQUIRE(getPathDistance(path6, Cities, map1) == getPathDistance_sol(path6, Cities, map1));
 
         Path path7 = {"A", "C", "B"};
-        REQUIRE(getPathDistance(path7, Cities, map1) == 90);
+        REQUIRE(getPathDistance(path7, Cities, map1) == getPathDistance_sol(path7, Cities, map1));
 
         Path path8 = {"A", "D", "C", "B", "A"};
-        REQUIRE(getPathDistance(path8, Cities, map1) == 180);
+        REQUIRE(getPathDistance(path8, Cities, map1) == getPathDistance_sol(path8, Cities, map1));
     }
 
     SECTION("Map2"){
@@ -110,28 +117,28 @@ TEST_CASE("Part2: Path Distances"){
         std::vector<std::string> Cities2 = {"New York", "Chicago", "Los Angeles", "Houston"};
 
         Path path1 = {"New York", "Chicago", "Los Angeles", "Houston"};
-        REQUIRE(getPathDistance(path1, Cities2, map2) == 1459);
+        REQUIRE(getPathDistance(path1, Cities2, map2) == getPathDistance_sol(path1, Cities2, map2));
 
         Path path2 = {"New York", "Los Angeles", "Chicago", "Houston"};
-        REQUIRE(getPathDistance(path2, Cities2, map2) == 1556);
+        REQUIRE(getPathDistance(path2, Cities2, map2) == getPathDistance_sol(path2, Cities2, map2));
 
         Path path3 = {"New York", "Houston", "Chicago", "Los Angeles"};
-        REQUIRE(getPathDistance(path3, Cities2, map2) == 1529);
+        REQUIRE(getPathDistance(path3, Cities2, map2) == getPathDistance_sol(path3, Cities2, map2));
 
         Path path4 = {"New York", "Chicago", "Houston", "Los Angeles"};
-        REQUIRE(getPathDistance(path4, Cities2, map2) == 1485);
+        REQUIRE(getPathDistance(path4, Cities2, map2) == getPathDistance_sol(path4, Cities2, map2));
 
         Path path5 = {"New York", "Los Angeles", "Houston", "Chicago"};
-        REQUIRE(getPathDistance(path5, Cities2, map2) == 1568);
+        REQUIRE(getPathDistance(path5, Cities2, map2) == getPathDistance_sol(path5, Cities2, map2));
 
         Path path6 = {"New York", "Chicago", "Los Angeles"};
-        REQUIRE(getPathDistance(path6, Cities2, map2) == 1362);
+        REQUIRE(getPathDistance(path6, Cities2, map2) == getPathDistance_sol(path6, Cities2, map2));
 
         Path path7 = {"New York", "Los Angeles", "Chicago"};
-        REQUIRE(getPathDistance(path7, Cities2, map2) == 1465);
+        REQUIRE(getPathDistance(path7, Cities2, map2) == getPathDistance_sol(path7, Cities2, map2));
 
         Path path8 = {"New York", "Houston", "Chicago", "Los Angeles", "New York"};
-        REQUIRE(getPathDistance(path8, Cities2, map2) == 1662);
+        REQUIRE(getPathDistance(path8, Cities2, map2) == getPathDistance_sol(path8, Cities2, map2));
     }
 
     SECTION("Additional Map"){
@@ -149,24 +156,50 @@ TEST_CASE("Part2: Path Distances"){
         std::vector<std::string> Cities3 = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
 
         Path path1 = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
-        REQUIRE(getPathDistance(path1, Cities3, map3) == 11641);
+        REQUIRE(getPathDistance(path1, Cities3, map3) == getPathDistance_sol(path1, Cities3, map3));
 
         Path path2 = {"A", "B", "C", "D", "E", "F", "G", "H"};
-        REQUIRE(getPathDistance(path2, Cities3, map3) == 11586);
+        REQUIRE(getPathDistance(path2, Cities3, map3) == getPathDistance_sol(path2, Cities3, map3));
 
         Path path3 = {"A", "B", "C", "D", "E", "F", "G"};
-        REQUIRE(getPathDistance(path3, Cities3, map3) == 11531);
+        REQUIRE(getPathDistance(path3, Cities3, map3) == getPathDistance_sol(path3, Cities3, map3));
 
         Path path4 = {"A", "B", "C", "D", "E", "F"};
-        REQUIRE(getPathDistance(path4, Cities3, map3) == 11476);
+        REQUIRE(getPathDistance(path4, Cities3, map3) == getPathDistance_sol(path4, Cities3, map3));
 
         Path path5 = {"A", "B", "C", "D", "E"};
-        REQUIRE(getPathDistance(path5, Cities3, map3) == 11421);
+        REQUIRE(getPathDistance(path5, Cities3, map3) == getPathDistance_sol(path5, Cities3, map3));
 
         Path path6 = {"A", "B", "C", "D"};
-        REQUIRE(getPathDistance(path6, Cities3, map3) == 11366);
+        REQUIRE(getPathDistance(path6, Cities3, map3) == getPathDistance_sol(path6, Cities3, map3));
 
         Path path7 = {"A", "B", "C"};
-        REQUIRE(getPathDistance(path7, Cities3, map3) == 11256);
+        REQUIRE(getPathDistance(path7, Cities3, map3) == getPathDistance_sol(path7, Cities3, map3));
     }
+}
+
+int distance_sol(const std::string& city1,const std::string& city2, const std::vector<std::string>& cities, const
+Matrix&
+map){
+    int city1_index = 0;
+    int city2_index = 0;
+    for (int i = 0; i < cities.size(); i++){
+        if (cities[i] == city1){
+            city1_index = i;
+        }
+        if (cities[i] == city2){
+            city2_index = i;
+        }
+    }
+    return map[city1_index][city2_index];
+}
+
+
+int getPathDistance_sol(const std::vector<std::string> &path, const std::vector<std::string>& cities, const Matrix&
+map){
+    int total_distance = 0;
+    for (int i = 0; i < path.size() - 1; i++){
+        total_distance += distance(path[i], path[i+1], cities, map);
+    }
+    return total_distance;
 }

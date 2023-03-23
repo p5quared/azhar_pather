@@ -6,7 +6,7 @@
 #include <string>
 #include <catch2/catch_test_macros.hpp>
 
-#include "main.cpp"
+#include "main_helpers.h"
 
 TEST_CASE("shortestAndLongestPath"){
     SECTION("Given Map1"){
@@ -54,7 +54,7 @@ TEST_CASE("shortestAndLongestPath"){
         REQUIRE(shorter == 30);
         REQUIRE(longer == 50);
 
-        SECTION("Map of Length 10"){
+        SECTION("Map of Length 10 - 1"){
             std::vector<std::string> Cities5 = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
             std::vector<std::vector<int>> map5 = {
                     {0, 415, 456, 233, 179, 894, 859, 754, 719, 571},
@@ -89,6 +89,25 @@ TEST_CASE("shortestAndLongestPath"){
             const auto [shorter, longer] = shortestAndLongestPath(Cities4, map4);
             REQUIRE(shorter == 10);
             REQUIRE(longer == 59);
+        }
+        SECTION("Map of Length 10 - 2"){
+            std::vector<std::string> Cities = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+            std::vector<std::vector<int>> map = {
+                                                         {0, 355, 435, 272, 201, 216, 146, 416, 461, 430},
+                                                         {355, 0, 374, 331, 372, 470, 468, 288, 202, 313},
+                                                         {435, 374, 0, 438, 101, 235, 180, 310, 428, 189},
+                                                         {272, 331, 438, 0, 443, 318, 326, 261, 277, 160},
+                                                         {201, 372, 101, 443, 0, 129, 491, 311, 154, 345},
+                                                         {216, 470, 235, 318, 129, 0, 169, 426, 384, 492},
+                                                         {146, 468, 180, 326, 491, 169, 0, 205, 371, 308},
+                                                         {416, 288, 310, 261, 311, 426, 205, 0, 280, 243},
+                                                         {461, 202, 428, 277, 154, 384, 371, 280, 0, 484},
+                                                         {430, 313, 189, 160, 345, 492, 308, 243, 484, 0}
+                                                 };
+            const auto [shorter, longer] = shortestAndLongestPath(Cities, map);
+
+            REQUIRE(shorter == 1625);
+            REQUIRE(longer == 4163);
         }
     }
 

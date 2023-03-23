@@ -1,6 +1,9 @@
 //
-// Created by Peter Vaiciulis on 3/16/23.
+// Created by Peter Vaiciulis on 3/23/23.
 //
+
+#ifndef AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H
+#define AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H
 
 #include <vector>
 #include <string>
@@ -24,8 +27,6 @@ using Matrix = std::vector<std::vector<int>>;
  * The problem is that we can't use strings as indices in a matrix.
  * We need a way to convert the strings to integers, and vice versa.
  */
-
-
 std::vector<std::string> Cities = {"A", "B", "C", "D"};
 Matrix map1 = {
         {0, 10, 20, 30},
@@ -47,15 +48,11 @@ Matrix map2 = {
  * Try to reuse the functions you wrote in the previous exercises, but modify them, or use helper functions,
  * so we can use strings instead of integers.
  */
+// BOTH OF THESE FUNCTIONS MUST BE IMPLEMENTED
 int distance(const std::string& city1,const std::string& city2, const std::vector<std::string>& cities, const Matrix&
 map);
 int getPathDistance(const std::vector<std::string> &path, const std::vector<std::string>& cities, const Matrix& map);
 
-
-int main(){
-
-    return 0;
-}
 
 int distance(const std::string& city1,const std::string& city2, const std::vector<std::string>& cities, const Matrix&
 map){
@@ -80,3 +77,4 @@ int getPathDistance(const std::vector<std::string> &path, const std::vector<std:
     }
     return total_distance;
 }
+#endif //AZHAR_PATH_MEASURINGDISTANCES2_HELPERS_H

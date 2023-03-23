@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <iostream>
+#include "measuringDistances_helpers.h"
 
 /*
  * One way we can represent the distances between cities is with a matrix.
@@ -40,9 +41,6 @@ Matrix map2 = {
         {1234, 123, 0, 123},
         {83, 123, 123, 0}
 };
-
-
-
 /*
  * Your first goal for this exercise is to write a function that returns the distance between two cities.
  * The function should take two integers as parameters, representing the indices of the cities.
@@ -63,19 +61,9 @@ int pathDistance(const std::vector<int> path, const Matrix& map);
 
 
 int main(){
+
     return 0;
 }
 
 
 
-int distance(int city1, int city2, const Matrix& map) {
-    return map[city1][city2];
-}
-
-int pathDistance(const std::vector<int> path, const Matrix& map) {
-    int total_distance = 0;
-    for (int i = 0; i < path.size() - 1; i++) {
-        total_distance += distance(path[i], path[i + 1], map);
-    }
-    return total_distance;
-}

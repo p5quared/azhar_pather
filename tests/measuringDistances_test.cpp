@@ -1,13 +1,14 @@
 //
 // Created by Peter Vaiciulis on 3/16/23.
 //
-#include "measuringDistances.cpp"
+#include "measuring-distances-I/measuringDistances_helpers.h"
 
 #include <vector>
 #include <string>
 #include <catch2/catch_test_macros.hpp>
 
-int pathDistance_solution(const std::vector<int> path, const Matrix& map);
+int pathDistance_sol(const std::vector<int> path, const Matrix& map);
+int distance_sol(int city1, int city2, const Matrix& map);
 
 TEST_CASE("Part1: Distance")
 {
@@ -32,12 +33,12 @@ TEST_CASE("Part1: Distance")
                 {1234, 123, 0, 123},
                 {83, 123, 123, 0}
         };
-        REQUIRE(distance(0, 1, map2) == 99);
-        REQUIRE(distance(0, 2, map2) == 1234);
-        REQUIRE(distance(0, 3, map2) == 83);
-        REQUIRE(distance(1, 2, map2) == 123);
-        REQUIRE(distance(1, 3, map2) == 123);
-        REQUIRE(distance(2, 3, map2) == 123);
+        REQUIRE(distance(0, 1, map2) == distance_sol(0, 1, map2));
+        REQUIRE(distance(0, 2, map2) == distance_sol(0, 2, map2));
+        REQUIRE(distance(0, 3, map2) == distance_sol(0, 3, map2));
+        REQUIRE(distance(1, 2, map2) == distance_sol(1, 2, map2));
+        REQUIRE(distance(1, 3, map2) == distance_sol(1, 3, map2));
+        REQUIRE(distance(2, 3, map2) == distance_sol(2, 3, map2));
     }
 }
 
@@ -50,13 +51,13 @@ SECTION("Map1"){
                 {30, 50, 60, 0}
         };
         std::vector<int> path1 = {0, 1, 2, 3};
-        REQUIRE(pathDistance(path1, map1) == pathDistance_solution(path1, map1));
+        REQUIRE(pathDistance(path1, map1) == pathDistance_sol(path1, map1));
 
         std::vector<int> path2 = {0, 2, 1, 3};
-        REQUIRE(pathDistance(path2, map1) == pathDistance_solution(path2, map1));
+        REQUIRE(pathDistance(path2, map1) == pathDistance_sol(path2, map1));
 
         std::vector<int> path3 = {0, 3, 2, 1};
-        REQUIRE(pathDistance(path3, map1) == pathDistance_solution(path3, map1));
+        REQUIRE(pathDistance(path3, map1) == pathDistance_sol(path3, map1));
 
     }
     SECTION("Map2"){
@@ -67,16 +68,16 @@ SECTION("Map1"){
                 {83, 123, 123, 0}
         };
         std::vector<int> path1 = {0, 1, 2, 3};
-        REQUIRE(pathDistance(path1, map2) == pathDistance_solution(path1, map2));
+        REQUIRE(pathDistance(path1, map2) == pathDistance_sol(path1, map2));
 
         std::vector<int> path2 = {0, 2, 1, 3};
-        REQUIRE(pathDistance(path2, map2) == pathDistance_solution(path2, map2));
+        REQUIRE(pathDistance(path2, map2) == pathDistance_sol(path2, map2));
 
         std::vector<int> path3 = {0, 3, 2, 1};
-        REQUIRE(pathDistance(path3, map2) == pathDistance_solution(path3, map2));
+        REQUIRE(pathDistance(path3, map2) == pathDistance_sol(path3, map2));
 
         std::vector<int> path4 = {0, 3, 1, 2, 1, 3};
-        REQUIRE(pathDistance(path4, map2) == pathDistance_solution(path4, map2));
+        REQUIRE(pathDistance(path4, map2) == pathDistance_sol(path4, map2));
     }
 
     SECTION("Additional Maps")
@@ -92,7 +93,7 @@ SECTION("Map1"){
         {5, 4, 3, 2, 1, 0}
     };
     std::vector<int> path1 = {0, 1, 2, 3, 4, 5};
-    REQUIRE(pathDistance(path1, map3) == pathDistance_solution(path1, map3));
+    REQUIRE(pathDistance(path1, map3) == pathDistance_sol(path1, map3));
 
 
     // Make a distance matrix of integers between 100 and 300
@@ -103,13 +104,16 @@ SECTION("Map1"){
         {300, 300, 300, 0}
     };
     std::vector<int> path2 = {0, 1, 2, 3};
-    REQUIRE(pathDistance(path2, map4) == pathDistance_solution(path2, map4));
+    REQUIRE(pathDistance(path2, map4) == pathDistance_sol(path2, map4));
 
     }
 
 }
+int distance_sol(int city1, int city2, const Matrix& map) {
+    return map[city1][city2];
+}
 
-int pathDistance_solution(const std::vector<int> path, const Matrix& map) {
+int pathDistance_sol(const std::vector<int> path, const Matrix& map) {
     int total_distance = 0;
     for (int i = 0; i < path.size() - 1; i++) {
         total_distance += distance(path[i], path[i + 1], map);

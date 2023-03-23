@@ -5,7 +5,7 @@
 #include <vector>
 #include <catch2/catch_test_macros.hpp>
 
-#include "permutations.cpp"
+#include "permutations/permutations_helpers.h"
 
 TEST_CASE("Vector of Integers")
 {

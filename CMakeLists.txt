@@ -8,19 +8,20 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Standard Targets
 add_executable(main main.cpp)
-add_executable(measuringDistances exercises/measuringDistances.cpp)
-add_executable(measuringDistances2 exercises/measuringDistances2.cpp)
-add_executable(permutations exercises/permutations.cpp)
+add_executable(measuringDistances exercises/measuring-distances-I/measuringDistances.cpp)
+add_executable(measuringDistances2 exercises/measuring-distances-II/measuringDistances2.cpp)
+add_executable(permutations exercises/permutations/permutations.cpp)
 
 
 # Testing Targets
-add_executable(permutation_tests testing/permutations_tests.cpp)
-add_executable(measuringDistances_tests testing/measuringDistances_tests.cpp)
-add_executable(measuringDistances2_tests testing/measuringDistances2_tests.cpp)
-add_executable(solution testing/solution.cpp)
-add_executable(main_test testing/main_tests.cpp)
+add_executable(permutation_test tests/permutations_test.cpp)
+add_executable(measuringDistances_test tests/measuringDistances_test.cpp)
+add_executable(measuringDistances2_test tests/measuringDistances2_test.cpp)
+add_executable(main_test tests/main_tests.cpp)
+add_executable(solution tests/solution.cpp)
 
 Include(FetchContent)
+set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra")
 
 FetchContent_Declare(
         Catch2
@@ -33,15 +34,15 @@ list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 include(CTest)
 include(Catch)
 
-target_link_libraries(permutation_tests PRIVATE Catch2::Catch2)
-catch_discover_tests(permutation_tests)
+target_link_libraries(permutation_test PRIVATE Catch2::Catch2WithMain)
+#catch_discover_tests(permutation_test)
 
-target_link_libraries(measuringDistances_tests PRIVATE Catch2::Catch2)
-catch_discover_tests(measuringDistances_tests)
+target_link_libraries(measuringDistances_test PRIVATE Catch2::Catch2WithMain)
+#catch_discover_tests(measuringDistances_test)
 
-target_link_libraries(measuringDistances2_tests PRIVATE Catch2::Catch2)
-catch_discover_tests(measuringDistances2_tests)
+target_link_libraries(measuringDistances2_test PRIVATE Catch2::Catch2WithMain)
+#catch_discover_tests(measuringDistances2_test)
 
-target_link_libraries(main_test PRIVATE Catch2::Catch2)
-catch_discover_tests(main_test)
+target_link_libraries(main_test PRIVATE Catch2::Catch2WithMain)
+#catch_discover_tests(main_test)
 
