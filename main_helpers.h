@@ -39,14 +39,14 @@ std::pair<int, int> shortestAndLongestPath(const std::vector<std::string>& citie
     int shortest_path = 0;
     int longest_path = 0;
 
-    for (auto const path : all_paths) {
+    for (auto const& path : all_paths) {
         int path_distance = getPathDistance(path, cities, dist_matrix);
-        if (shortest_path == 0 || path_distance < shortest_path) {
+
+        if (path_distance < shortest_path || shortest_path == 0)
             shortest_path = path_distance;
-        }
-        if (longest_path == 0 || path_distance > longest_path) {
+
+        if (path_distance > longest_path || longest_path == 0)
             longest_path = path_distance;
-        }
     }
 
     return {shortest_path, longest_path};
