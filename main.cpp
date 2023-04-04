@@ -41,7 +41,6 @@ Matrix map2 = {
 
 
 int main(){
-
     std::cout << "Map 1:\n";
     auto [shorter, longer] = shortestAndLongestPath(Cities, map1);
     std::cout << "Shortest path: " << shorter << std::endl;
@@ -52,9 +51,7 @@ int main(){
     std::cout << "Shortest path: " << shorter2 << std::endl;
     std::cout << "Longest path: " << longer2 << std::endl;
 
-
     return 0;
-
 }
 
 
