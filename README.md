@@ -8,7 +8,7 @@ This repository contains a collection of exercises for C++, designed for Prof. A
    1. You will usually define functions in a separate file, but can test them yourself in the main function or use the
    provided test executable.
 
-### Building Code
+## Build
 This repository relies on CMake to build the code. You can install CMake from [here](https://cmake.org/download/) if
 you are running this on your own computer and do not already have CMake installed. If you are using Repl.it, read the
 instructions following.
@@ -20,7 +20,25 @@ instructions following.
     1. Each exercise produces two executables: one with your own main function and one for testing purposes.
    2. The testing executable will be called `<exercise_name>_test`, and main will be called `<exercise_name>`.
 
+For simplicity:
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+
 ### Repl.it Instructions
 If you are using Repl.it, you may get a warning that CMake is not installed. You can ignore this warning, as CMake is
 installed on the Repl.it servers. When you run `cmake ..`, just press enter to accept the default CMake option, and
 then press enter again to accept the default build type if prompted.
+
+## Running Tests
+There are a number of test targets generated, mostly with obvious names like `exercise_1_test`. Run these as any 
+executable in the build directory.
+
+### Newer Tests
+Tests besides Measuring distances and permutations are written with tags to simplify running them.
+To run a specific test, run `<test-name> "[<tag1>][<tag2>]"`.
+For example, to run the easy tests in templates, run `templates "[easy]"`.

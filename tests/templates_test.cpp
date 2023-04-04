@@ -7,7 +7,7 @@
 
 #include "templates/templates.h"
 
-TEST_CASE("sum"){
+TEST_CASE("sum", "[easy]"){
     SECTION("Given two ints"){
         REQUIRE(sum(1, 2) == 3);
         REQUIRE(sum(2, 2) == 4);
@@ -25,7 +25,7 @@ TEST_CASE("sum"){
     }
 }
 
-TEST_CASE("greatest"){
+TEST_CASE("greatest", "[easy]"){
     SECTION("Given two ints"){
         REQUIRE(greatest(1, 2) == 2);
         REQUIRE(greatest(2, 2) == 2);
@@ -43,7 +43,7 @@ TEST_CASE("greatest"){
     }
 }
 
-TEST_CASE("sum_vector"){
+TEST_CASE("sum_vector", "[medium]"){
     SECTION("Given vector of ints"){
         std::vector<int> v = {1, 2, 3, 4, 5};
         REQUIRE(sum_vector(v) == 15);
@@ -58,7 +58,7 @@ TEST_CASE("sum_vector"){
     }
 }
 
-TEST_CASE("dot_product"){
+TEST_CASE("dot_product", "[hard]"){
     SECTION("Given two arrays of ints"){
         int a[] = {1, 2, 3, 4, 5};
         int b[] = {1, 2, 3, 4, 5};

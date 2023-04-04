@@ -3,6 +3,13 @@
 //
 #include <vector>
 
+
+/* Testing Info:
+ *
+ * Name: templates
+ * Tags: [easy], [medium], [hard], [<function-name>] (e.g. [sum])
+ */
+
 /* The goal of these exercises is to practice using templates.
  *
  * Templates are a powerful tool that allows us to write generic code that can be used with different types.
@@ -47,6 +54,7 @@ T sum_vector(std::vector<T> vec) {
 // Implement a function that returns the dot product of two vectors (not std::vector).
 // (https://en.wikipedia.org/wiki/Dot_product)
 // the function MUST be called dot_product, and take two parameters, two arrays representing the vectors.
+// implement WITHOUT passing a size parameter to the function.
 template<typename T, size_t N>
 T dotProduct(const T (&a)[N], const T (&b)[N]) {
     T result = 0;
