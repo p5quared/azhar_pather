@@ -19,6 +19,7 @@ add_executable(measuringDistances_test tests/measuringDistances_test.cpp)
 add_executable(measuringDistances2_test tests/measuringDistances2_test.cpp)
 add_executable(main_test tests/main_tests.cpp)
 add_executable(solution tests/solution.cpp)
+add_executable(templates tests/templates_test.cpp)
 
 Include(FetchContent)
 set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra")
@@ -45,4 +46,6 @@ target_link_libraries(measuringDistances2_test PRIVATE Catch2::Catch2WithMain)
 
 target_link_libraries(main_test PRIVATE Catch2::Catch2WithMain)
 #catch_discover_tests(main_test)
+
+target_link_libraries(templates PRIVATE Catch2::Catch2WithMain)
 
