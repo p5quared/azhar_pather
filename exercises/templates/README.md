@@ -7,7 +7,7 @@ Templates are useful because they allow for code reuse and reduce code duplicati
 Another benefit of templates is that they enable writing generic code that can adapt to different data types at compile-time, which can lead to optimized code without the overhead of runtime type checks or polymorphism.
 
 **How do Templates Work during Compilation and Linking?**
-Templates in C++ are compiled at compile-time, which means that the compiler generates the appropriate code for each specific instantiation of the template. This is known as template instantiation. When a template is used with a specific type, the compiler generates the necessary code for that type by substituting the template parameters with the actual types.
+Templates in C++ are generated at compile-time, which means that the compiler generates the appropriate code for each specific instantiation of the template. This is known as template instantiation. When a template is used with a specific type, the compiler generates the necessary code for that type by substituting the template parameters with the actual types.
 
 Template code is usually defined in header files, as the definitions need to be available at the point of instantiation, which is where the template is used with a specific type. The compiler generates the template code during compilation, and the generated code is then linked with the rest of the program during the linking phase to produce the final executable.
 
