@@ -5,7 +5,7 @@
 #include <string>
 #include <catch2/catch_test_macros.hpp>
 
-#include "templates/templates.h"
+#include "templates.h"
 
 TEST_CASE("sum", "[easy]"){
     SECTION("Given two ints"){

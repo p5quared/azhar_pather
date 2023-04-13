@@ -3,14 +3,16 @@ project(azhar_path)
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories(exercises)
+include_directories(exercises/PathFinding)
+include_directories(exercises/templates)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Standard Targets
 add_executable(main main.cpp)
-add_executable(measuringDistances exercises/measuring-distances-I/measuringDistances.cpp)
-add_executable(measuringDistances2 exercises/measuring-distances-II/measuringDistances2.cpp)
-add_executable(permutations exercises/permutations/permutations.cpp)
+add_executable(measuringDistances exercises/PathFinding/measuring-distances-I/measuringDistances.cpp)
+add_executable(measuringDistances2 exercises/PathFinding/measuring-distances-II/measuringDistances2.cpp)
+add_executable(permutations exercises/PathFinding/permutations/permutations.cpp)
+add_executable(basic_sql tutorial/sqlite/basic_example.cpp)
 
 
 # Testing Targets
@@ -49,3 +51,4 @@ target_link_libraries(main_test PRIVATE Catch2::Catch2WithMain)
 
 target_link_libraries(templates PRIVATE Catch2::Catch2WithMain)
 
+target_link_libraries(basic_sql PRIVATE sqlite3)

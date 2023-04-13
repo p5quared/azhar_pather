@@ -1,3 +1,7 @@
 cmake-build-debug
 build
 .idea
+*.db
+!tutorial/sqlite/students.db
+*.out
+[^\.]*

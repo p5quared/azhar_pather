@@ -7,7 +7,8 @@
 /* Testing Info:
  *
  * Name: templates
- * Tags: [easy], [medium], [hard], [<function-name>] (e.g. [sum])
+ * Tags: [easy], [medium], [hard], "<function-name>" (e.g. "sum" or [easy])
+ * ex: ./templates "greatest"
  */
 
 /* The goal of these exercises is to practice using templates.
@@ -51,9 +52,9 @@ T sum_vector(std::vector<T> vec) {
 
 /********HARD********/
 
-// Implement a function that returns the dot product of two vectors (not std::vector).
+// Implement a function that returns the dot product of two vectors (math/physics vectors, not std::vector).
 // (https://en.wikipedia.org/wiki/Dot_product)
-// the function MUST be called dot_product, and take two parameters, two arrays representing the vectors.
+// The function MUST be called dot_product, and take two parameters, two arrays representing the vectors.
 // implement WITHOUT passing a size parameter to the function.
 template<typename T, size_t N>
 T dotProduct(const T (&a)[N], const T (&b)[N]) {

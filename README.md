@@ -1,13 +1,30 @@
 # Additional C++ Exercises!
 This repository contains a collection of exercises for C++, designed for Prof. Azhar's CSC211H course at BMCC.
 
-## How to use this repository
+## Repository Structure
+```text
+You are Here!
+│
+│
+├── README.md
+├── exercises
+│   ├── PathFinding
+│   │   ├── measuring-distances-I
+│   │   ├── measuring-distances-II
+│   │   └── permutations
+│   └── templates
+├── tests
+└── tutorial
+    └── sqlite
+```
+    
+## How to use Exercises
 1. Fork this repository to your own GitHub account.
 2. Clone your forked repository to your local machine.
 3. Enter any of the exercise directories and follow the instructions in each file.
    1. You will usually define functions in a separate file, but can test them yourself in the main function or use the
    provided test executable.
-
+   
 ## Build
 This repository relies on CMake to build the code. You can install CMake from [here](https://cmake.org/download/) if
 you are running this on your own computer and do not already have CMake installed. If you are using Repl.it, read the
@@ -39,6 +56,9 @@ There are a number of test targets generated, mostly with obvious names like `ex
 executable in the build directory.
 
 ### Newer Tests
-Tests besides Measuring distances and permutations are written with tags to simplify running them.
-To run a specific test, run `<test-name> "[<tag1>][<tag2>]"`.
+Some of the later tests are written to support the use of tags to run more specific test cases.
+To run a specific test, run `<test-name> "[<tag1>][<tag2>]..."`.
 For example, to run the easy tests in templates, run `templates "[easy]"`.
+To run a specific NAMED test (not by tag), run `<test-name> "<test-name>"`.
+
+Tests with these capabilities will have the tags listed clearly in the exercise.
