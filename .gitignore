@@ -3,3 +3,5 @@ build
 .idea
 *.db
 *.out
+[^\.]*
+!tutorial/sqlite/students.db

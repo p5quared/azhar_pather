@@ -23,10 +23,15 @@
  *
  * You will also see the use of callback functions.
  * If you have done web-development stuff in the past, you may be familiar with callback functions. Call back functions
- * are functions that are passed as parameters to other functions and called inside.
+ * are functions that are passed as parameters to other functions, and invoked inside.
+ *
+ * A common example is when working with buttons. If you have a button that is supposed to do something
+ * 'onClick', you'd typically pass a callback function to the button that the button will store when it is created.
+ * Then, when the button is clicked, it will invoke the callback function and do whatever you want.
  *
  * In this example, we are passing the callback function to the sqlite3_exec function. The sqlite3_exec function will
- * call the callback function for each row in the result of the query.
+ * call the callback function for each row in the result of the query. For a better idea of how this works, Google
+ * "what is an sql cursor?" and "sqlite3_exec callback function".
  *
  * */
 
