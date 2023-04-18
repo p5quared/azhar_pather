@@ -33,4 +33,4 @@ jobs:
       
     - name: Make
       # Confirm that the build compiles
-      run: make
+      run: make -C $${{github.workspace}}/build
